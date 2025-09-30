@@ -18,6 +18,16 @@ import {
 
 import Logo from "../../public/logo.svg";
 import Image from "next/image";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import Link from "next/link";
 
 // This is sample data
 const data = {
@@ -97,11 +107,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               Pesquisar Templates
             </div>
           </div>
+
           <SidebarInput placeholder="Type to search..." />
         </SidebarHeader>
         <SidebarContent>
-          <SidebarGroup className="px-0">
-            <SidebarGroupContent></SidebarGroupContent>
+          <SidebarGroup className="px-2">
+            <SidebarGroupContent className="flex flex-col gap-4">
+              <Link href="/dashboard">
+                <Card className="py-3">
+                  <CardHeader className="px-3">
+                    <CardTitle>Validation code template</CardTitle>
+                    <CardDescription>
+                      Send a validation code for user
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/dashboard/message">
+                <Card className="py-3">
+                  <CardHeader className="px-3">
+                    <CardTitle>Message template</CardTitle>
+                    <CardDescription>
+                      Send a review for a user or destinatary
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+            </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
       </Sidebar>
